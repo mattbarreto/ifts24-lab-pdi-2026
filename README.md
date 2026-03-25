@@ -220,10 +220,10 @@ En algunos sistemas operativos, py5 requiere un backend gráfico adicional. Inst
 ```bash
 pip install glfw
 ```
-Si el problema persiste, consultá la [guía de instalación de py5](https://py5coding.org/content/installation.html) que detalla los requisitos específicos para cada sistema operativo.
+Si el problema persiste, consultá la [guía de instalación de py5](https://py5coding.org/content/install.html) que detalla los requisitos específicos para cada sistema operativo.
 
 ### Error de Java al ejecutar py5
-py5 requiere Java para funcionar. Si ves un error relacionado con Java, instalá la versión apropiada según tu sistema operativo siguiendo las [instrucciones oficiales de instalación de py5](https://py5coding.org/content/installation.html).
+py5 requiere Java para funcionar. Si ves un error relacionado con Java, instalá la versión apropiada según tu sistema operativo siguiendo las [instrucciones oficiales de instalación de py5](https://py5coding.org/content/install.html).
 
 ---
 
@@ -234,7 +234,7 @@ py5 requiere Java para funcionar. Si ves un error relacionado con Java, instalá
 - [Documentación de Matplotlib](https://matplotlib.org/)
 - [Documentación de scikit-image](https://scikit-image.org/docs/)
 - [Documentación de py5](https://py5coding.org/)
-- [Guía de instalación de py5 (incluye requisitos de Java)](https://py5coding.org/content/installation.html)
+- [Guía de instalación de py5 (incluye requisitos de Java)](https://py5coding.org/content/install.html)
 - [Google Colab Help](https://colab.research.google.com/notebooks/intro.ipynb)
 
 ---
