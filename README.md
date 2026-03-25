@@ -45,9 +45,12 @@ El entorno virtual es una instalación aislada de Python que:
 
 Antes de arrancar, asegurate de tener instalado en tu máquina:
 
-1. **Python 3.10 o superior** — [Descarga oficial](https://www.python.org/downloads/)
+1. **Python 3.10 o 3.11** — [Descarga oficial](https://www.python.org/downloads/)
    - Durante la instalación en Windows, marcá la opción **"Add Python to PATH"**
    - **No necesitás "Install for all users"** — la instalación para tu usuario actual funciona perfectamente
+   - Verificá que versiones de Python tenes instaladas: py -0p
+   - Verificá que version de Python tenes activa: python --version
+   - Para cambiar de versión de Python: En variables de entorno ubica las rutas de la version que quieras y movelas primeras en la lista, guarda todo, cerra la terminal y VSC. Volve a abrir en una terminal nueva y volve a comprobar la versión.
 2. **Git** — [Descarga oficial](https://git-scm.com/downloads)
    - Elegí la opción "Git from the command line and also from 3rd-party software"
 3. **Visual Studio Code** (recomendado) — [Descarga oficial](https://code.visualstudio.com/)
@@ -70,7 +73,7 @@ cd ifts24-lab-pdi-2026
 ```
 
 ### 2. Crear el entorno virtual
-
+Verificá que estas parado en la carpeta "ifts24-lab-pdi-2026"
 ```bash
 python -m venv .venv
 ```
