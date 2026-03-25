@@ -1,0 +1,20 @@
+# Procesamiento Digital de Imagenes - Dependencias
+# Instalar con: pip install -r requirements.txt
+
+# Librerias centrales de procesamiento de imagenes
+opencv-python>=4.8.0
+numpy>=1.24.0
+Pillow>=10.0.0
+scikit-image>=0.21.0
+
+# Visualizacion
+matplotlib>=3.7.0
+
+# Entorno interactivo
+jupyter>=1.0.0
+
+# Introduccion visual (unidades iniciales)
+py5>=0.10.0
+
+# Utilidades
+scipy>=1.11.0
