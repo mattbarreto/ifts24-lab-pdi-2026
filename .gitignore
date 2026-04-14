@@ -72,3 +72,12 @@ logs/
 
 # Directorio privado de desarrollo
 augR - aruco/
+
+# Documentación
+Docs/
+
+# Recursos didácticos versionados
+!004 - openCV/Imagenes/
+!004 - openCV/Imagenes/*
+img/
+
