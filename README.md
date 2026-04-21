@@ -157,23 +157,28 @@ ifts24-lab-pdi-2026/
 │   ├── ...
 │   └── 008 - actividad integradora - segmentacion por color.ipynb
 │
-└── 004 - openCV/                <- Bloque OpenCV reorganizado en secuencia plana
-    ├── 001 - introduccion a opencv y espacios de color.ipynb
-    ├── 002 - formatos de archivos de imagen.ipynb
-    ├── 003 - mejora de imagen y ecualizacion basica.ipynb
-    ├── 004 - comparacion de estrategias de ecualizacion.ipynb
-    ├── 004b - operaciones basicas con imagenes.ipynb
-    ├── 005 - transformaciones geometricas y cambio de perspectiva.ipynb
-    ├── 006 - operaciones graficas y anotacion visual.ipynb
-    ├── 006b - filtros de suavizado y reduccion de ruido.ipynb
-    ├── 006c - morfologia matematica para limpieza de mascaras.ipynb
-    ├── 006d - restauracion y algoritmos de inpainting.ipynb
-    ├── 007 - deteccion de contornos.ipynb
-    ├── 008 - propiedades geometricas de contornos.ipynb
-    ├── 009 - coincidencia por plantilla.ipynb
-    ├── 010 - deteccion de rostros con haar.ipynb
-    ├── Utilidades_y_Plantillas.ipynb     <- Caja de herramientas reutilizable para la unidad y el TPI
-    └── Imagenes/
+├── 004 - openCV/                <- Bloque OpenCV reorganizado en secuencia plana
+│   ├── 001 - introduccion a opencv y espacios de color.ipynb
+│   ├── 002 - formatos de archivos de imagen.ipynb
+│   ├── 003 - mejora de imagen y ecualizacion basica.ipynb
+│   ├── 004 - comparacion de estrategias de ecualizacion.ipynb
+│   ├── 004b - operaciones basicas con imagenes.ipynb
+│   ├── 005 - transformaciones geometricas y cambio de perspectiva.ipynb
+│   ├── 006 - operaciones graficas y anotacion visual.ipynb
+│   ├── 006b - filtros de suavizado y reduccion de ruido.ipynb
+│   ├── 006b2 - umbralizacion global, Otsu y adaptive threshold.ipynb
+│   ├── 006c - morfologia matematica para limpieza de mascaras.ipynb
+│   ├── 006d - restauracion y algoritmos de inpainting.ipynb
+│   ├── 007 - deteccion de contornos.ipynb
+│   ├── 008 - propiedades geometricas de contornos.ipynb
+│   ├── 009 - coincidencia por plantilla.ipynb
+│   ├── 010 - deteccion de rostros con haar.ipynb
+│   ├── Utilidades_y_Plantillas.ipynb     <- Caja de herramientas reutilizable para la unidad y el TPI
+│   └── Imagenes/
+│
+└── 005 - TFI_1/                 <- Trabajo final integrador de mejora y restauracion
+    ├── TFI_1 - mejora y restauracion de imagenes.ipynb
+    └── TFI_1_Consigna_y_Rubrica.md
 ```
 
 ---
