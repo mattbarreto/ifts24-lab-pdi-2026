@@ -103,6 +103,8 @@ Ese archivo incluye las librerías de deep learning, visión artificial, Hugging
 pip install -r "007 - redes_neuronales_parte_2/requirements.txt"
 pip install -q tfds-nightly
 pip install -q tensorflow-datasets
+pip install transformers
+pip install mediapipe
 ```
 
 ## 8. Verificar Jupyter
