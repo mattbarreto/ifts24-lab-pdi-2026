@@ -68,15 +68,17 @@ cd "008 - vision_artificial_aplicada"
 
 Luego instalá las dependencias de este material:
 
-```powershell
-python -m pip install -r requirements.txt
-```
-
 Si preferís hacerlo desde la raíz del proyecto sin cambiar de carpeta, también sirve:
 
 ```powershell
 python -m pip install -r "008 - vision_artificial_aplicada\requirements.txt"
+```
 
+Si ya ten?as instalado `opencv-python-headless`, reemplazalo por la versi?n con GUI antes de ejecutar el notebook 02:
+
+```powershell
+python -m pip uninstall opencv-python-headless
+python -m pip install "opencv-python>=4.13.0"
 ```
 
 ---
@@ -97,7 +99,7 @@ Si ese comando imprime una versión, el entorno quedó listo.
 ## 5. Paquetes principales de esta unidad
 
 - `mediapipe`: detección de manos, rostro y pose.
-- `opencv-python-headless`: lectura y procesamiento de imágenes y video.
+- `opencv-python`: lectura y procesamiento de imágenes y video con soporte de ventana GUI para `cv2.imshow()`.
 - `gradio`: interfaces web simples para demos.
 - `numpy`: operaciones numéricas.
 - `matplotlib`: visualización.
