@@ -40,7 +40,8 @@ requests>=2.31.0
 pillow>=9.0.0
 
 # ─── Deep Learning — TensorFlow / Keras ──────────────────────────────────────
-tensorflow>=2.15.0
+tensorflow==2.15.*
+keras==2.15.*
 tensorflow-datasets>=4.9.0
 
 # ─── Deep Learning — PyTorch (modelos preentrenados, ResNet18) ───────────────
