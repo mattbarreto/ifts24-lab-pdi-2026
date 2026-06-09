@@ -1,0 +1,5 @@
+tensorflow==2.15.*
+keras==2.15.*
+
+jupyterlab>=4.0.0
+ipykernel>=6.0.0
