@@ -3,6 +3,9 @@ opencv-python==4.10.0.84
 numpy<2
 matplotlib
 scikit-image
+protobuf>=4.25.3,<5
 
 jupyterlab>=4.0.0
 ipykernel>=6.0.0
+
+#.\venv_facemesh\Scripts\python.exe -m ipykernel install --user --name venv_facemesh --display-name "Facemesh"
