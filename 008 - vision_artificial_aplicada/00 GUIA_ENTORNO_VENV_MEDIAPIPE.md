@@ -16,7 +16,7 @@ El entorno esperado para esta unidad es:
 
 ---
 
-## 2. Crear y Activar el entorno
+## 2. Crear y activar el entorno
 
 Si todavía no existe, primero crealo desde la raíz del proyecto con:
 
@@ -56,9 +56,24 @@ python -m ipykernel install --user --name mediapipe-008 --display-name "Python (
 
 Si más adelante querés cambiar el nombre visible, podés repetir el segundo comando con otro `--display-name`.
 
+## 3. Referencia del entorno actual
+
+La versión instalada hoy en `venv_mediapipe` incluye, entre otras, estas versiones clave:
+
+- `mediapipe==0.10.35`
+- `opencv-python==4.13.0.92`
+- `opencv-contrib-python==4.13.0.92`
+- `numpy==2.2.6`
+- `matplotlib==3.10.9`
+- `scikit-image==0.25.2`
+- `scipy==1.15.3`
+- `requests==2.34.2`
+- `jupyterlab==4.5.8`
+- `ipykernel==7.2.0`
+
 ---
 
-## 3. Instalar dependencias
+## 4. Instalar dependencias
 
 Ubicate dentro de la carpeta de la unidad:
 
@@ -66,24 +81,25 @@ Ubicate dentro de la carpeta de la unidad:
 cd "008 - vision_artificial_aplicada"
 ```
 
-Luego instalá las dependencias de este material:
-
-Si preferís hacerlo desde la raíz del proyecto sin cambiar de carpeta, también sirve:
+Luego instalá las dependencias que corresponden al entorno de referencia actual:
 
 ```powershell
-python -m pip install -r "008 - vision_artificial_aplicada\requirements.txt"
+python -m pip install --upgrade pip
+pip install mediapipe==0.10.35 opencv-python==4.13.0.92 opencv-contrib-python==4.13.0.92
+pip install numpy==2.2.6 matplotlib==3.10.9 scikit-image==0.25.2 scipy==1.15.3 requests==2.34.2
+pip install jupyterlab==4.5.8 ipykernel==7.2.0
 ```
 
-Si ya ten?as instalado `opencv-python-headless`, reemplazalo por la versi?n con GUI antes de ejecutar el notebook 02:
+Si ya tenías instalado `opencv-python-headless`, reemplazalo por la versión con GUI antes de ejecutar el notebook 02:
 
 ```powershell
 python -m pip uninstall opencv-python-headless
-python -m pip install "opencv-python>=4.13.0"
+python -m pip install "opencv-python==4.13.0.92"
 ```
 
 ---
 
-## 4. Verificar que MediaPipe quedó instalado
+## 5. Verificar que MediaPipe quedó instalado
 
 Podés comprobarlo con:
 
@@ -96,7 +112,7 @@ Si ese comando imprime una versión, el entorno quedó listo.
 ---
 
 
-## 5. Paquetes principales de esta unidad
+## 6. Paquetes principales de esta unidad
 
 - `mediapipe`: detección de manos, rostro y pose.
 - `opencv-python`: lectura y procesamiento de imágenes y video con soporte de ventana GUI para `cv2.imshow()`.
