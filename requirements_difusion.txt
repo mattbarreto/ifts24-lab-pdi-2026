@@ -1,0 +1,20 @@
+## Runtime de difusión
+accelerate==1.13.0
+diffusers==0.38.0
+matplotlib==3.10.9
+numpy==2.2.6
+pillow==12.2.0
+psutil==7.2.2
+requests==2.34.2
+scipy==1.15.3
+safetensors>=0.8.0
+torch==2.12.0
+torchvision
+transformers==5.10.2
+peft>=0.13.1
+
+## Entorno Jupyter
+ipykernel==7.2.0
+ipython==8.39.0
+jupyterlab==4.5.8
+notebook==7.5.6
