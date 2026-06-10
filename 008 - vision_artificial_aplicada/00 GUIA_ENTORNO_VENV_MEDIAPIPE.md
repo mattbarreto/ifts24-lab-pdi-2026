@@ -61,15 +61,13 @@ Si más adelante querés cambiar el nombre visible, podés repetir el segundo co
 La versión instalada hoy en `venv_mediapipe` incluye, entre otras, estas versiones clave:
 
 - `mediapipe==0.10.35`
-- `opencv-python==4.13.0.92`
-- `opencv-contrib-python==4.13.0.92`
+- `opencv-python==4.13.0`
 - `numpy==2.2.6`
 - `matplotlib==3.10.9`
-- `scikit-image==0.25.2`
-- `scipy==1.15.3`
-- `requests==2.34.2`
-- `jupyterlab==4.5.8`
-- `ipykernel==7.2.0`
+- `gradio==6.16.0`
+- `pycaw==20251023`
+- `comtypes==1.1.14`
+- `opencv-python-headless` sin versión fijada
 
 ---
 
@@ -85,16 +83,14 @@ Luego instalá las dependencias que corresponden al entorno de referencia actual
 
 ```powershell
 python -m pip install --upgrade pip
-pip install mediapipe==0.10.35 opencv-python==4.13.0.92 opencv-contrib-python==4.13.0.92
-pip install numpy==2.2.6 matplotlib==3.10.9 scikit-image==0.25.2 scipy==1.15.3 requests==2.34.2
-pip install jupyterlab==4.5.8 ipykernel==7.2.0
+pip install -r requirements_mediapipe.txt
 ```
 
 Si ya tenías instalado `opencv-python-headless`, reemplazalo por la versión con GUI antes de ejecutar el notebook 02:
 
 ```powershell
 python -m pip uninstall opencv-python-headless
-python -m pip install "opencv-python==4.13.0.92"
+python -m pip install "opencv-python==4.13.0"
 ```
 
 ---
@@ -119,7 +115,8 @@ Si ese comando imprime una versión, el entorno quedó listo.
 - `gradio`: interfaces web simples para demos.
 - `numpy`: operaciones numéricas.
 - `matplotlib`: visualización.
-- `jupyterlab`: ejecución de notebooks.
+- `pycaw` y `comtypes`: utilidades de audio y compatibilidad en Windows.
+- `opencv-python-headless`: alternativa sin GUI para ejecución en entornos headless.
 
 ---
 
