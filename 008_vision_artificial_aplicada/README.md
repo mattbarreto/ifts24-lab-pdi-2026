@@ -61,14 +61,10 @@ Esta carpeta incluye su propia configuración de dependencias con `uv` (`pyproje
 Desde esta carpeta, ejecutar:
 
 ```powershell
-$env:UV_PROJECT_ENVIRONMENT = ".venv_008"
-uv venv .venv_008 --python 3.12
 uv sync
 ```
 
-> ⚠️ `UV_PROJECT_ENVIRONMENT` solo dura mientras esa terminal esté abierta. Si cerrás la terminal y abrís otra para correr `uv sync`, `uv run` o `uv lock` en esta carpeta, hay que volver a setear la variable antes (`$env:UV_PROJECT_ENVIRONMENT = ".venv_008"`) — si no, uv va a crear un `.venv` genérico nuevo en vez de usar `.venv_008`.
-
-`uv sync` crea `.venv_008` con la versión de Python fijada en `.python-version` (3.12) e instala las versiones fijadas en `uv.lock` (mediapipe, opencv-python-headless, gradio, numpy, matplotlib, más `ipykernel`). En Windows también instala automáticamente `pycaw` y `comtypes` (necesarios solo para el notebook 02, ver más abajo); en Linux/macOS se omiten solos.
+`uv sync` crea `.venv` con la versión de Python fijada en `.python-version` (3.12) e instala las versiones fijadas en `uv.lock` (mediapipe, opencv-python-headless, gradio, numpy, matplotlib, más `ipykernel`). En Windows también instala automáticamente `pycaw` y `comtypes` (necesarios solo para el notebook 02, ver más abajo); en Linux/macOS se omiten solos.
 
 ---
 
@@ -77,7 +73,7 @@ uv sync
 Como vas a tener varios entornos virtuales (uno por carpeta), conviene registrar el kernel de este con un nombre identificable en vez de dejar el genérico "Python 3 (ipykernel)":
 
 ```powershell
-.venv_008\Scripts\python.exe -m ipykernel install --user --name pdi-008-vision-aplicada --display-name "PDI 008 - Vision Artificial Aplicada"
+.venv\Scripts\python.exe -m ipykernel install --user --name pdi-008-vision-aplicada --display-name "PDI 008 - Vision Artificial Aplicada"
 ```
 
 Así va a aparecer en VS Code/Jupyter identificado como **"PDI 008 - Vision Artificial Aplicada"**, sin mezclarse con los kernels de las demás carpetas.
@@ -88,26 +84,26 @@ Así va a aparecer en VS Code/Jupyter identificado como **"PDI 008 - Vision Arti
 
 **Linux / macOS:**
 ```bash
-source .venv_008/bin/activate
+source .venv/bin/activate
 ```
 
 **Windows (CMD):**
 ```cmd
-.venv_008\Scripts\activate.bat
+.venv\Scripts\activate.bat
 ```
 
 **Windows (PowerShell):**
 ```powershell
-.venv_008\Scripts\Activate.ps1
+.venv\Scripts\Activate.ps1
 ```
 
-El prompt de la terminal va a mostrar `(.venv_008)` cuando el entorno esté activo.
+El prompt de la terminal va a mostrar `(.venv)` cuando el entorno esté activo.
 
 ---
 
 ### Paso 4 — Abrir los notebooks
 
-La forma recomendada es VS Code (ver [instalación y selección del kernel](INSTALACION_VSCODE.md)): abrir esta carpeta en VS Code y seleccionar `.venv_008\Scripts\python.exe` (Windows) o `.venv_008/bin/python` (macOS/Linux) como intérprete/kernel.
+La forma recomendada es VS Code (ver [instalación y selección del kernel](INSTALACION_VSCODE.md)): abrir esta carpeta en VS Code y seleccionar `.venv\Scripts\python.exe` (Windows) o `.venv/bin/python` (macOS/Linux) como intérprete/kernel.
 
 Si preferís Jupyter Lab en el navegador:
 
@@ -120,7 +116,6 @@ uv run --with jupyter jupyter lab
 ### Actualizar dependencias
 
 ```powershell
-$env:UV_PROJECT_ENVIRONMENT = ".venv_008"
 uv lock --upgrade
 uv sync
 ```

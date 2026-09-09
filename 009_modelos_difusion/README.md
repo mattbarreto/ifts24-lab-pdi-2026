@@ -14,12 +14,12 @@ Colección de 6 notebooks sobre modelos generativos de difusión, que cubren des
 
 | Notebook | Tema | Ejecutar en Colab |
 | :--- | :--- | :--- |
-| `01_Introduccion_Conceptual_Difusion` | Fundamentos y visualización del proceso de difusión (forward/reverse) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mattbarreto/ifts24-lab-pdi-2026/blob/master/009_modelos_difusion/01_Introduccion_Conceptual_Difusion.ipynb) |
-| `02_Paradigmas_y_Modelos_Difusion` | Del paradigma tradicional al generativo, historia y primer demo | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mattbarreto/ifts24-lab-pdi-2026/blob/master/009_modelos_difusion/02_Paradigmas_y_Modelos_Difusion.ipynb) |
-| `03_Aplicaciones_Practicas_Difusion` | Inpainting, Super-Resolution e Image-to-Image paso a paso | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mattbarreto/ifts24-lab-pdi-2026/blob/master/009_modelos_difusion/03_Aplicaciones_Practicas_Difusion.ipynb) |
-| `04_Text_to_Image_SDXL_Turbo` | Inferencia ultra-rápida de 1024x1024 en un solo paso | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mattbarreto/ifts24-lab-pdi-2026/blob/master/009_modelos_difusion/04_Text_to_Image_SDXL_Turbo.ipynb) |
-| `05_Text_to_Image_SDXS_CPU` | Generación text-to-image de baja latencia optimizada para CPU | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mattbarreto/ifts24-lab-pdi-2026/blob/master/009_modelos_difusion/05_Text_to_Image_SDXS_CPU.ipynb) |
-| `06_Aceleracion_LCM_LoRA` | Latent Consistency Models y adaptación de bajo rango (LoRA) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mattbarreto/ifts24-lab-pdi-2026/blob/master/009_modelos_difusion/06_Aceleracion_LCM_LoRA.ipynb) |
+| `01_Introduccion_Conceptual_Difusion` | Fundamentos y visualización del proceso de difusión (forward/reverse) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mattbarreto/ifts24-lab-pdi-2026/blob/master/009%20-%20modelos_difusion/01_Introduccion_Conceptual_Difusion.ipynb) |
+| `02_Paradigmas_y_Modelos_Difusion` | Del paradigma tradicional al generativo, historia y primer demo | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mattbarreto/ifts24-lab-pdi-2026/blob/master/009%20-%20modelos_difusion/02_Paradigmas_y_Modelos_Difusion.ipynb) |
+| `03_Aplicaciones_Practicas_Difusion` | Inpainting, Super-Resolution e Image-to-Image paso a paso | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mattbarreto/ifts24-lab-pdi-2026/blob/master/009%20-%20modelos_difusion/03_Aplicaciones_Practicas_Difusion.ipynb) |
+| `04_Text_to_Image_SDXL_Turbo` | Inferencia ultra-rápida de 1024x1024 en un solo paso | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mattbarreto/ifts24-lab-pdi-2026/blob/master/009%20-%20modelos_difusion/04_Text_to_Image_SDXL_Turbo.ipynb) |
+| `05_Text_to_Image_SDXS_CPU` | Generación text-to-image de baja latencia optimizada para CPU | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mattbarreto/ifts24-lab-pdi-2026/blob/master/009%20-%20modelos_difusion/05_Text_to_Image_SDXS_CPU.ipynb) |
+| `06_Aceleracion_LCM_LoRA` | Latent Consistency Models y adaptación de bajo rango (LoRA) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mattbarreto/ifts24-lab-pdi-2026/blob/master/009%20-%20modelos_difusion/06_Aceleracion_LCM_LoRA.ipynb) |
 
 ---
 
@@ -76,14 +76,10 @@ Si contás con una GPU dedicada potente en tu máquina local y preferís correr 
 Desde esta carpeta, ejecutar:
 
 ```powershell
-$env:UV_PROJECT_ENVIRONMENT = ".venv_009"
-uv venv .venv_009 --python 3.12
 uv sync
 ```
 
-> ⚠️ `UV_PROJECT_ENVIRONMENT` solo dura mientras esa terminal esté abierta. Si cerrás la terminal y abrís otra para correr `uv sync`, `uv run` o `uv lock` en esta carpeta, hay que volver a setear la variable antes (`$env:UV_PROJECT_ENVIRONMENT = ".venv_009"`) — si no, uv va a crear un `.venv` genérico nuevo en vez de usar `.venv_009`.
-
-`uv sync` crea `.venv_009` con la versión de Python fijada en `.python-version` (3.12) e instala las versiones fijadas en `uv.lock` (diffusers, transformers, accelerate, torch, pillow, matplotlib, numpy, requests, scipy, psutil, más `ipykernel`).
+`uv sync` crea `.venv` con la versión de Python fijada en `.python-version` (3.12) e instala las versiones fijadas en `uv.lock` (diffusers, transformers, accelerate, torch, pillow, matplotlib, numpy, requests, scipy, psutil, más `ipykernel`).
 
 ---
 
@@ -92,7 +88,7 @@ uv sync
 Como vas a tener varios entornos virtuales (uno por carpeta), conviene registrar el kernel de este con un nombre identificable en vez de dejar el genérico "Python 3 (ipykernel)":
 
 ```powershell
-.venv_009\Scripts\python.exe -m ipykernel install --user --name pdi-009-difusion --display-name "PDI 009 - Modelos de Difusion"
+.venv\Scripts\python.exe -m ipykernel install --user --name pdi-009-difusion --display-name "PDI 009 - Modelos de Difusion"
 ```
 
 Así va a aparecer en VS Code/Jupyter identificado como **"PDI 009 - Modelos de Difusion"**, sin mezclarse con los kernels de las demás carpetas.
@@ -103,26 +99,26 @@ Así va a aparecer en VS Code/Jupyter identificado como **"PDI 009 - Modelos de 
 
 **Linux / macOS:**
 ```bash
-source .venv_009/bin/activate
+source .venv/bin/activate
 ```
 
 **Windows (CMD):**
 ```cmd
-.venv_009\Scripts\activate.bat
+.venv\Scripts\activate.bat
 ```
 
 **Windows (PowerShell):**
 ```powershell
-.venv_009\Scripts\Activate.ps1
+.venv\Scripts\Activate.ps1
 ```
 
-El prompt de la terminal va a mostrar `(.venv_009)` cuando el entorno esté activo.
+El prompt de la terminal va a mostrar `(.venv)` cuando el entorno esté activo.
 
 ---
 
 ### Paso 4 — Abrir los notebooks
 
-La forma recomendada es VS Code (ver [instalación y selección del kernel](INSTALACION_VSCODE.md)): abrir esta carpeta en VS Code y seleccionar `.venv_009\Scripts\python.exe` (Windows) o `.venv_009/bin/python` (macOS/Linux) como intérprete/kernel.
+La forma recomendada es VS Code (ver [instalación y selección del kernel](INSTALACION_VSCODE.md)): abrir esta carpeta en VS Code y seleccionar `.venv\Scripts\python.exe` (Windows) o `.venv/bin/python` (macOS/Linux) como intérprete/kernel.
 
 Si preferís Jupyter Lab en el navegador:
 
@@ -135,7 +131,6 @@ uv run --with jupyter jupyter lab
 ### Actualizar dependencias
 
 ```powershell
-$env:UV_PROJECT_ENVIRONMENT = ".venv_009"
 uv lock --upgrade
 uv sync
 ```
