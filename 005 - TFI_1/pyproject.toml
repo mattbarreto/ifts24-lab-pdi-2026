@@ -1,0 +1,16 @@
+[project]
+name = "tfi-1-mejora-restauracion"
+version = "0.1.0"
+description = "Entorno de laboratorio para el TFI 1: mejora y restauracion de imagenes"
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "opencv-python",
+    "pandas",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.3.0",
+]
