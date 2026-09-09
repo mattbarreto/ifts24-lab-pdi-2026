@@ -8,14 +8,14 @@ Material de laboratorio sobre librerías fundamentales para el procesamiento dig
 
 ## Contenido
 
-- `001 - entorno y librerias.ipynb`: configuración y reconocimiento del entorno.
-- `002 - imagenes en color y canales.ipynb`: imágenes en color y sus canales.
-- `003 - operaciones basicas con opencv.ipynb`: operaciones iniciales con OpenCV.
-- `004 - muestreo y cuantizacion.ipynb`: muestreo y cuantización.
-- `005 - practica guiada de procesamiento de imagenes.ipynb`: práctica guiada.
-- `006 - laboratorio 2 - segmentacion simple por color.ipynb`: segmentación simple por color.
-- `007 - recuperacion y preprocesamiento de imagenes propias.ipynb`: recuperación y preprocesamiento.
-- `008 - actividad integradora - segmentacion por color.ipynb`: actividad integradora.
+- `001_entorno_y_librerias.ipynb`: configuración y reconocimiento del entorno.
+- `002_imagenes_en_color_y_canales.ipynb`: imágenes en color y sus canales.
+- `003_operaciones_basicas_con_opencv.ipynb`: operaciones iniciales con OpenCV.
+- `004_muestreo_y_cuantizacion.ipynb`: muestreo y cuantización.
+- `005_practica_guiada_de_procesamiento_de_imagenes.ipynb`: práctica guiada.
+- `006_laboratorio_2_segmentacion_simple_por_color.ipynb`: segmentación simple por color.
+- `007_recuperacion_y_preprocesamiento_de_imagenes_propias.ipynb`: recuperación y preprocesamiento.
+- `008_actividad_integradora_segmentacion_por_color.ipynb`: actividad integradora.
 
 ## Requisitos
 

@@ -10,7 +10,7 @@ Bloque de OpenCV reorganizado en secuencia plana: espacios de color, formatos de
 
 - `001` a `010`: secuencia principal de OpenCV (espacios de color, formatos, ecualización, transformaciones, filtros, umbralización, morfología, restauración, contornos, plantillas, rostros).
 - `Utilidades_y_Plantillas.ipynb`: caja de herramientas reutilizable para la unidad.
-- `exploratorios/laboratorio guiado de exploracion - color, paleta y segmentacion.ipynb`: laboratorio guiado adicional.
+- `exploratorios/laboratorio_guiado_de_exploracion_color_paleta_y_segmentacion.ipynb`: laboratorio guiado adicional.
 - `Imagenes/`: imágenes de ejemplo usadas por los notebooks.
 
 ## Requisitos

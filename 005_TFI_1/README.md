@@ -8,7 +8,7 @@ Trabajo Final Integrador 1: construcción de tres pipelines de mejora y restaura
 
 ## Contenido
 
-- `TFI_1 - mejora y restauracion de imagenes.ipynb`: notebook de trabajo del TFI.
+- `TFI_1_mejora_y_restauracion_de_imagenes.ipynb`: notebook de trabajo del TFI.
 - `TFI_1_Consigna_y_Rubrica.md`: consigna, restricciones y rúbrica de evaluación.
 
 ## Requisitos

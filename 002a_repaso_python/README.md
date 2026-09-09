@@ -8,7 +8,7 @@ Clase de repaso de Python (90 minutos) pensada como puente entre las unidades de
 
 ## Contenido
 
-- `00 - repaso de python.ipynb`: notebook único de la clase de repaso.
+- `00_repaso_de_python.ipynb`: notebook único de la clase de repaso.
 - `Imagenes/escena_urbana.png`: imagen de ejemplo usada a lo largo del cuaderno.
 
 ## Requisitos
