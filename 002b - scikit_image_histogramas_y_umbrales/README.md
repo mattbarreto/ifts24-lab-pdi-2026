@@ -1,6 +1,8 @@
 # Introducción a scikit-image, Histogramas y Umbrales
 
-**Material desarrollado para el IFTS Nº 24 (2026) — Laboratorio de Tecnologías de la Imagen Digital.**
+**Profesor Titular:** Matías Barreto — Especialista en Nuevos Medios e Interactividad
+
+Material creado por el profesor para la materia PDI de IFTS Nº 24.
 
 Secuencia de 3 notebooks que introducen `scikit-image` y NumPy sobre imágenes de ejemplo incluidas en la propia librería (`skimage.data`), avanzando desde la estructura de una imagen digital hasta los histogramas y la umbralización (thresholding). Esta carpeta puede usarse de forma independiente porque incluye su propia configuración de dependencias con `uv`.
 

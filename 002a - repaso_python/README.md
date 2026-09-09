@@ -1,6 +1,8 @@
 # Repaso de Python — Imágenes como datos
 
-**Material desarrollado para el IFTS Nº 24 (2026) — Laboratorio de Tecnologías de la Imagen Digital.**
+**Profesor Titular:** Matías Barreto — Especialista en Nuevos Medios e Interactividad
+
+Material creado por el profesor para la materia PDI de IFTS Nº 24.
 
 Clase de repaso de Python (90 minutos) pensada como puente entre las unidades de py5 y el bloque técnico de fundamentos de PDI: recorre `pathlib`, lectura de metadatos de imágenes, conversión de una imagen a matriz de números con Pillow/NumPy, estructuras de control, funciones reutilizables y un cierre armando una mini interfaz con Gradio. Esta carpeta puede usarse de forma independiente porque incluye su propia configuración de dependencias con `uv`.
 
