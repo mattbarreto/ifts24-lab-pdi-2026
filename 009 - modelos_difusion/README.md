@@ -58,48 +58,40 @@ Alternativa clásica y muy confiable:
 
 ## Configuración del entorno local
 
-Si contás con una GPU dedicada potente en tu máquina local y preferís correr los cuadernos sin conexión:
+Si contás con una GPU dedicada potente en tu máquina local y preferís correr los cuadernos sin conexión, esta carpeta incluye su propia configuración de dependencias con `uv` (`pyproject.toml` + `uv.lock`), para poder usarse de forma independiente y reproducible.
 
 ### Requisitos previos
 
-- **Python 3.10 o superior** — [python.org/downloads](https://www.python.org/downloads/)
-- **uv** — gestor de entornos virtuales ultrarrápido
+- **Python 3.12** — [descarga oficial](https://www.python.org/downloads/).
+- Git — [descarga oficial](https://git-scm.com/downloads).
+- `uv` instalado y disponible en el PATH. Ver [cómo instalar uv](INSTALACION_UV.md).
+- Visual Studio Code con las extensiones necesarias. Ver [cómo instalar VS Code y sus extensiones](INSTALACION_VSCODE.md).
 
 > ✦ La instalación local requiere descargar modelos preentrenados grandes (que van de 1 GB a 7 GB según el modelo). Se recomienda una conexión estable a internet y al menos 15 GB de espacio libre en disco para almacenar los checkpoints en caché.
 
 ---
 
-### Paso 1 — Instalar uv
+### Paso 1 — Crear el entorno
 
-**Linux / macOS** (terminal):
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
+Desde esta carpeta, ejecutar:
 
-**Windows** (PowerShell):
 ```powershell
-powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+uv sync
 ```
 
-**Alternativa universal** (si ya tenés pip):
-```bash
-pip install uv
-```
-
-Verificá la instalación:
-```bash
-uv --version
-```
+`uv sync` crea `.venv` con la versión de Python fijada en `.python-version` (3.12) e instala las versiones fijadas en `uv.lock` (diffusers, transformers, accelerate, torch, pillow, matplotlib, numpy, requests, scipy, psutil, más `ipykernel`).
 
 ---
 
-### Paso 2 — Crear el entorno virtual
+### Paso 2 — Registrar el kernel con nombre propio
 
-Desde la carpeta `009 - modelos_difusion/`:
+Como vas a tener varios entornos virtuales (uno por carpeta), conviene registrar el kernel de este con un nombre identificable en vez de dejar el genérico "Python 3 (ipykernel)":
 
-```bash
-uv venv .venv
+```powershell
+.venv\Scripts\python.exe -m ipykernel install --user --name pdi-009-difusion --display-name "PDI 009 - Modelos de Difusion"
 ```
+
+Así va a aparecer en VS Code/Jupyter identificado como **"PDI 009 - Modelos de Difusion"**, sin mezclarse con los kernels de las demás carpetas.
 
 ---
 
@@ -124,25 +116,23 @@ El prompt de la terminal va a mostrar `(.venv)` cuando el entorno esté activo.
 
 ---
 
-### Paso 4 — Instalar las dependencias
+### Paso 4 — Abrir los notebooks
 
-Se recomienda instalar las dependencias básicas utilizando el gestor de paquetes de la raíz o instalando de forma directa:
+La forma recomendada es VS Code (ver [instalación y selección del kernel](INSTALACION_VSCODE.md)): abrir esta carpeta en VS Code y seleccionar `.venv\Scripts\python.exe` (Windows) o `.venv/bin/python` (macOS/Linux) como intérprete/kernel.
 
-```bash
-uv pip install diffusers transformers accelerate torch pillow matplotlib numpy requests
+Si preferís Jupyter Lab en el navegador:
+
+```powershell
+uv run --with jupyter jupyter lab
 ```
 
 ---
 
-### Paso 5 — Abrir los notebooks
+### Actualizar dependencias
 
-```bash
-jupyter lab
-```
-
-O si preferís la interfaz clásica:
-```bash
-jupyter notebook
+```powershell
+uv lock --upgrade
+uv sync
 ```
 
 ---
