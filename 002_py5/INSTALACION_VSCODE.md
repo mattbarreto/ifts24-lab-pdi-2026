@@ -22,5 +22,5 @@ La extensión Python permite seleccionar el intérprete y trabajar con el entorn
 
 1. Abrir esta carpeta en VS Code.
 2. Ejecutar `Python: Select Interpreter` desde la paleta de comandos (`Ctrl+Shift+P`).
-3. Seleccionar `\.venv\Scripts\python.exe` en Windows o `.venv/bin/python` en macOS/Linux.
+3. Seleccionar `.venv_002\Scripts\python.exe` en Windows o `.venv_002/bin/python` en macOS/Linux (esta carpeta usa `.venv_002` en vez de `.venv` genérico; ver [INSTALACION_UV.md](INSTALACION_UV.md)).
 4. Abrir un notebook y seleccionar el mismo entorno como kernel.
