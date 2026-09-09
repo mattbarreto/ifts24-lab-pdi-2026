@@ -1,5 +1,9 @@
 # Fundamentos de Procesamiento Digital de Imágenes
 
+**Profesor Titular:** Matías Barreto — Especialista en Nuevos Medios e Interactividad
+
+Material creado por el profesor para la materia PDI de IFTS Nº 24.
+
 Material de laboratorio sobre librerías fundamentales para el procesamiento digital de imágenes. Esta carpeta puede compartirse de manera independiente porque incluye su propia configuración de dependencias con `uv`.
 
 ## Contenido
