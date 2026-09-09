@@ -51,50 +51,42 @@ Alternativa clásica y muy confiable:
 
 ## Configuración del entorno local
 
+Esta carpeta incluye su propia configuración de dependencias con `uv` (`pyproject.toml` + `uv.lock`), para poder usarse de forma independiente y reproducible.
+
 ### Requisitos previos
 
-- **Python 3.10 o superior** — [python.org/downloads](https://www.python.org/downloads/)
-- **uv** — gestor de entornos virtuales ultrarrápido
+- **Python 3.12** — [descarga oficial](https://www.python.org/downloads/).
+- Git — [descarga oficial](https://git-scm.com/downloads).
+- `uv` instalado y disponible en el PATH. Ver [cómo instalar uv](INSTALACION_UV.md).
+- Visual Studio Code con las extensiones necesarias. Ver [cómo instalar VS Code y sus extensiones](INSTALACION_VSCODE.md).
 
-> ✦ Esta unidad usa TensorFlow y PyTorch simultáneamente. La instalación puede
+> ✦ Esta unidad usa TensorFlow y PyTorch simultáneamente. La primera sincronización puede
 > demorar varios minutos dependiendo de la conexión. Se recomienda una conexión
 > estable y al menos 5 GB de espacio libre en disco.
 
 ---
 
-### Paso 1 — Instalar uv
+### Paso 1 — Crear el entorno
 
-**Linux / macOS** (terminal):
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
+Desde esta carpeta, ejecutar:
 
-**Windows** (PowerShell):
 ```powershell
-powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+uv sync
 ```
 
-**Alternativa universal** (si ya tenés pip):
-```bash
-pip install uv
-```
-
-Verificá la instalación:
-```bash
-uv --version
-```
+`uv sync` crea `.venv` con la versión de Python fijada en `.python-version` (3.12) e instala las versiones fijadas en `uv.lock` (numpy, pandas, seaborn, scikit-learn, requests, pillow, tensorflow, tensorflow-datasets, torch, torchvision, transformers, datasets, gradio, opencv-python-headless, más `ipykernel`).
 
 ---
 
-### Paso 2 — Crear el entorno virtual
+### Paso 2 — Registrar el kernel con nombre propio
 
-Desde la carpeta `007 - redes_neuronales_parte_2/`:
+Como vas a tener varios entornos virtuales (uno por carpeta), conviene registrar el kernel de este con un nombre identificable en vez de dejar el genérico "Python 3 (ipykernel)":
 
-```bash
-uv venv .venv
+```powershell
+.venv\Scripts\python.exe -m ipykernel install --user --name pdi-007-redes2 --display-name "PDI 007 - Redes Neuronales 2"
 ```
 
-Esto crea una carpeta `.venv/` con un entorno Python aislado, sin tocar el Python del sistema.
+Así va a aparecer en VS Code/Jupyter identificado como **"PDI 007 - Redes Neuronales 2"**, sin mezclarse con los kernels de las demás carpetas.
 
 ---
 
@@ -119,29 +111,24 @@ El prompt de la terminal va a mostrar `(.venv)` cuando el entorno esté activo.
 
 ---
 
-### Paso 4 — Instalar las dependencias
+### Paso 4 — Abrir los notebooks
 
-```bash
-uv pip install -r requirements.txt
+La forma recomendada es VS Code (ver [instalación y selección del kernel](INSTALACION_VSCODE.md)): abrir esta carpeta en VS Code y seleccionar `.venv\Scripts\python.exe` (Windows) o `.venv/bin/python` (macOS/Linux) como intérprete/kernel.
+
+Si preferís Jupyter Lab en el navegador:
+
+```powershell
+uv run --with jupyter jupyter lab
 ```
-
-> La primera instalación descarga TensorFlow, PyTorch y los modelos de Hugging Face.
-> Puede tomar entre 5 y 15 minutos según la conexión.
 
 ---
 
-### Paso 5 — Abrir los notebooks
+### Actualizar dependencias
 
-```bash
-jupyter lab
+```powershell
+uv lock --upgrade
+uv sync
 ```
-
-O si preferís la interfaz clásica:
-```bash
-jupyter notebook
-```
-
-Se va a abrir una pestaña en el navegador con todos los notebooks de la carpeta.
 
 ---
 
@@ -154,11 +141,7 @@ Algunos notebooks tienen líneas como `from google.colab import drive` o `from g
 Los notebooks funcionan en CPU, pero el entrenamiento de redes convolucionales (notebooks 03 y 06) va a ser considerablemente más lento sin GPU. Para acelerar, podés usar Google Colab (gratuito con GPU) o una máquina con CUDA.
 
 **Sobre versiones de Python**  
-TensorFlow 2.15+ requiere Python 3.9–3.11. Si tenés Python 3.12 o superior, especificá la versión al crear el entorno:
-
-```bash
-uv venv .venv --python 3.11
-```
+Este entorno está fijado en Python 3.12 (`.python-version`) y `uv.lock` ya confirma que TensorFlow, PyTorch y Transformers resuelven correctamente en esa versión.
 
 **Sobre la carpeta `datos/`**  
 La carpeta `datos/` debe estar en el mismo nivel que los notebooks. Si la descarga sola (sin el resto de la carpeta), algunos notebooks no van a encontrar los archivos de ejemplo. Download Directory y DownGit descargan la carpeta completa, incluyendo `datos/`.
