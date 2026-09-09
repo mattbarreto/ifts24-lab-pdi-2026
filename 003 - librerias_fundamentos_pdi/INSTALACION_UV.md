@@ -42,3 +42,13 @@ uv sync
 ```
 
 El archivo `uv.lock` fija las versiones exactas para que todas las instalaciones sean reproducibles.
+
+### Registrar el kernel con nombre propio
+
+Si vas a usar varios entornos virtuales a la vez (uno por carpeta del laboratorio), registrá el kernel de este con un nombre identificable en vez del genérico "Python 3 (ipykernel)":
+
+```powershell
+.venv\Scripts\python.exe -m ipykernel install --user --name pdi-003-fundamentos --display-name "PDI 003 - Librerías Fundamentos"
+```
+
+Así aparece en el selector de kernel de VS Code/Jupyter como **"PDI 003 - Librerías Fundamentos"**, distinguible de los kernels de las otras carpetas.
