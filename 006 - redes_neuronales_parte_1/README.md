@@ -1,158 +1,89 @@
-# Entorno de trabajo con uv
+# Unidad 006 — Redes Neuronales (Parte 1)
 
-Este documento indica cómo instalar `uv`, cómo crear y activar un entorno de trabajo, y qué librerías instalar para ejecutar los cuadernos de la clase.
+**Profesor Titular:** Matías Barreto — Especialista en Nuevos Medios e Interactividad
 
-## 1. Instalar uv
+Material creado por el profesor para la materia PDI de IFTS Nº 24.
 
-`uv` es una herramienta para crear entornos virtuales e instalar paquetes de Python de forma rápida.
+Colección de notebooks sobre redes neuronales: perceptrón y regresión, clasificación, redes convolucionales completas y un laboratorio de Teachable Machine con dataset propio desplegado en Gradio. Esta carpeta puede usarse de forma independiente porque incluye su propia configuración de dependencias con `uv`.
 
-### macOS y Linux
+## Contenido
 
-Abrí una terminal y ejecutá:
+- `001_Red_Neuronal.ipynb`: fundamentos de red neuronal simple.
+- `002_Clasificacion.ipynb`: clasificación con red densa.
+- `003_CNNs_Full.ipynb`: redes convolucionales (CNN) completas.
+- `004_Teachable_Machine_Dataset_Propio_Gradio.ipynb`: laboratorio integrador con dataset propio y despliegue en Gradio.
+- `datos/celsius.csv`: datos de soporte usados por los notebooks.
 
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
+## Requisitos
 
-Cerrá y volvé a abrir la terminal. Luego verificá la instalación:
+- Python 3.12 — [descarga oficial](https://www.python.org/downloads/).
+- Git — [descarga oficial](https://git-scm.com/downloads).
+- `uv` instalado y disponible en el PATH. Ver [cómo instalar uv](INSTALACION_UV.md).
+- Visual Studio Code con las extensiones necesarias. Ver [cómo instalar VS Code y sus extensiones](INSTALACION_VSCODE.md).
 
-```bash
-uv --version
-```
+> ✦ Esta unidad usa TensorFlow. La primera sincronización puede demorar varios minutos según la conexión.
 
-Si el comando no aparece, podés reiniciar la terminal o ejecutar:
+## Crear el entorno
 
-```bash
-source ~/.zshrc
-```
-
-Si usás Bash en lugar de Zsh:
-
-```bash
-source ~/.bashrc
-```
-
-### Windows
-
-Abrí PowerShell y ejecutá:
+Desde esta carpeta, ejecutar:
 
 ```powershell
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+uv sync
 ```
 
-Cerrá y volvé a abrir PowerShell. Luego verificá la instalación:
+`uv sync` crea `.venv` con la versión de Python fijada en `.python-version` (3.12) e instala las versiones fijadas en `uv.lock`. El archivo `pyproject.toml` contiene las dependencias directas del laboratorio (numpy, matplotlib, pandas, seaborn, scikit-learn, tensorflow, tensorflow-datasets, pillow, gradio, opencv-python-headless) más `ipykernel` para poder usar el entorno como kernel de Jupyter/VS Code.
+
+### Registrar el kernel con nombre propio
+
+Como vas a tener varios entornos virtuales (uno por carpeta), conviene registrar el kernel de este con un nombre identificable en vez de dejar el genérico "Python 3 (ipykernel)". Con el entorno ya sincronizado, ejecutar:
 
 ```powershell
-uv --version
+.venv\Scripts\python.exe -m ipykernel install --user --name pdi-006-redes1 --display-name "PDI 006 - Redes Neuronales 1"
 ```
 
-## 2. Crear el proyecto
+Esto registra el kernel en tu carpeta de Jupyter (con `--user`), así que va a aparecer en VS Code/Jupyter identificado como **"PDI 006 - Redes Neuronales 1"**, sin mezclarse con los kernels de las demás carpetas.
 
-Dentro de la carpeta del material, ejecutá:
+> Nota: en versiones anteriores de esta carpeta el kernel se registraba como `neural-networks-uv` ("Python (neural-networks-uv)"). Se renombró a `pdi-006-redes1` para seguir el mismo criterio de nombres que el resto de las carpetas del laboratorio.
 
-```bash
-uv init
-```
+## Activar el entorno
 
-Este comando crea la estructura básica del proyecto.
-
-## 3. Crear y activar el entorno virtual
-
-Creá el entorno virtual con:
-
-```bash
-uv venv
-```
-
-### Activar en macOS y Linux
-
-```bash
-source .venv/bin/activate
-```
-
-### Activar en Windows con PowerShell
+En Windows PowerShell:
 
 ```powershell
 .venv\Scripts\Activate.ps1
 ```
 
-### Activar en Windows con CMD
-
-```cmd
-.venv\Scripts\activate.bat
-```
-
-Cuando el entorno está activo, suele aparecer `(.venv)` al comienzo de la línea de la terminal.
-
-## 4. Instalar las librerías necesarias
-
-Después de `uv init` y `uv venv`, instalá las librerías con:
+En macOS o Linux:
 
 ```bash
-uv add pandas numpy matplotlib seaborn scikit-learn tensorflow tensorflow-datasets pillow gradio opencv-python-headless jupyter ipykernel
+source .venv/bin/activate
 ```
 
-Estas librerías cubren los cuadernos de redes neuronales, clasificación de imágenes, Teachable Machine y Gradio.
+## Abrir los notebooks
 
-## 5. Registrar el entorno para Jupyter
+La forma recomendada es VS Code (ver [instalación y selección del kernel](INSTALACION_VSCODE.md)): abrir esta carpeta en VS Code y seleccionar `.venv\Scripts\python.exe` (Windows) o `.venv/bin/python` (macOS/Linux) como intérprete/kernel.
 
-Para que Jupyter pueda usar el entorno virtual, ejecutá:
+Si preferís Jupyter Lab en el navegador:
 
-```bash
-python -m ipykernel install --user --name neural-networks-uv --display-name "Python (neural-networks-uv)"
+```powershell
+uv run --with jupyter jupyter lab
 ```
 
-Luego, al abrir un notebook, seleccioná el kernel:
+## Librerías incluidas
 
-```text
-Python (neural-networks-uv)
-```
-
-## 6. Abrir Jupyter
-
-Podés iniciar Jupyter con:
-
-```bash
-uv run jupyter notebook
-```
-
-También podés usar JupyterLab si lo instalás:
-
-```bash
-uv add jupyterlab
-uv run jupyter lab
-```
-
-## 7. Librerías incluidas
-
-- `pandas`: lectura y manejo de tablas.
-- `numpy`: operaciones numéricas y arreglos.
-- `matplotlib`: visualización básica.
-- `seaborn`: visualización estadística, por ejemplo matrices de confusión.
+- `numpy` / `pandas`: manejo numérico y de tablas.
+- `matplotlib` / `seaborn`: visualización, incluyendo matrices de confusión.
 - `scikit-learn`: métricas y herramientas de evaluación.
-- `tensorflow`: construcción y entrenamiento de redes neuronales.
-- `tensorflow-datasets`: descarga de datasets como MNIST, EMNIST y cats_vs_dogs.
+- `tensorflow` / `tensorflow-datasets`: construcción, entrenamiento y datasets (MNIST, EMNIST, cats_vs_dogs).
 - `pillow`: manejo de imágenes.
-- `gradio`: creación de interfaces web simples para probar modelos.
+- `gradio`: interfaces web para probar modelos.
 - `opencv-python-headless`: procesamiento de imágenes sin interfaz gráfica.
-- `jupyter`: ejecución de notebooks.
-- `ipykernel`: conexión entre el entorno virtual y Jupyter.
 
-## 8. Comando rápido
+## Actualizar dependencias
 
-Si ya instalaste `uv`, podés preparar todo con estos comandos:
-
-```bash
-uv init
-uv venv
-source .venv/bin/activate
-uv add pandas numpy matplotlib seaborn scikit-learn tensorflow tensorflow-datasets pillow gradio opencv-python-headless jupyter ipykernel
-python -m ipykernel install --user --name neural-networks-uv --display-name "Python (neural-networks-uv)"
-uv run jupyter notebook
-```
-
-En Windows, reemplazá la línea de activación por:
+Para actualizar el lockfile y sincronizar el entorno:
 
 ```powershell
-.venv\Scripts\Activate.ps1
+uv lock --upgrade
+uv sync
 ```
