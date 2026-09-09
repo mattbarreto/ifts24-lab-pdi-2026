@@ -38,3 +38,8 @@ results/
 # Logs y archivos temporales
 *.log
 *.tmp
+
+# Excepcion: esta carpeta usa Imagenes/ como insumo de entrada del notebook,
+# no como carpeta de salida generada durante la clase.
+!Imagenes/
+!Imagenes/**
