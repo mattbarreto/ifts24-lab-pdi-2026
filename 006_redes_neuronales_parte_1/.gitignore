@@ -1,5 +1,6 @@
-# Entorno virtual
+# Entorno virtual (incluye .venv_XXX, uno por carpeta)
 .venv/
+.venv_*/
 venv/
 ENV/
 env/
