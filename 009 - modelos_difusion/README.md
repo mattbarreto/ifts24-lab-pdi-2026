@@ -135,6 +135,12 @@ uv lock --upgrade
 uv sync
 ```
 
+`uv lock --upgrade` actualiza `uv.lock`, pero **no** actualiza `requirements.txt` automáticamente: ese archivo se generó una vez a partir del lock y queda desactualizado si no lo volvés a exportar. Después de sincronizar, correr también:
+
+```powershell
+uv export --format requirements.txt --no-hashes -o requirements.txt
+```
+
 ---
 
 ## Notas sobre Hardware y Optimización
