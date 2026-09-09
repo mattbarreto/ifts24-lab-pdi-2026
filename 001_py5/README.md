@@ -23,17 +23,21 @@ Scripts `.py` numerados en orden de dificultad creciente (000 a 015): setup bás
 Desde esta carpeta, ejecutar:
 
 ```powershell
+$env:UV_PROJECT_ENVIRONMENT = ".venv_001"
+uv venv .venv_001 --python 3.12
 uv sync
 ```
 
-`uv sync` crea `.venv` con la versión de Python fijada en `.python-version` (3.12) e instala las versiones fijadas en `uv.lock`. El archivo `pyproject.toml` contiene la dependencia directa del laboratorio (`py5`) más `ipykernel` para poder usar el entorno como kernel de VS Code.
+> ⚠️ `UV_PROJECT_ENVIRONMENT` solo dura mientras esa terminal esté abierta. Si cerrás la terminal y abrís otra para correr `uv sync`, `uv run` o `uv lock` en esta carpeta, hay que volver a setear la variable antes (`$env:UV_PROJECT_ENVIRONMENT = ".venv_001"`) — si no, uv va a crear un `.venv` genérico nuevo en vez de usar `.venv_001`.
+
+`uv sync` crea `.venv_001` con la versión de Python fijada en `.python-version` (3.12) e instala las versiones fijadas en `uv.lock`. El archivo `pyproject.toml` contiene la dependencia directa del laboratorio (`py5`) más `ipykernel` para poder usar el entorno como kernel de VS Code.
 
 ### Registrar el kernel con nombre propio
 
 Como vas a tener varios entornos virtuales (uno por carpeta), conviene registrar el kernel de este con un nombre identificable en vez de dejar el genérico "Python 3 (ipykernel)". Con el entorno ya sincronizado, ejecutar:
 
 ```powershell
-.venv\Scripts\python.exe -m ipykernel install --user --name pdi-001-py5 --display-name "PDI 001 - Py5 Intro"
+.venv_001\Scripts\python.exe -m ipykernel install --user --name pdi-001-py5 --display-name "PDI 001 - Py5 Intro"
 ```
 
 Esto registra el kernel en tu carpeta de Jupyter (con `--user`), así que va a aparecer en VS Code/Jupyter identificado como **"PDI 001 - Py5 Intro"**, sin mezclarse con los kernels de las demás carpetas.
@@ -43,18 +47,18 @@ Esto registra el kernel en tu carpeta de Jupyter (con `--user`), así que va a a
 En Windows PowerShell:
 
 ```powershell
-.venv\Scripts\Activate.ps1
+.venv_001\Scripts\Activate.ps1
 ```
 
 En macOS o Linux:
 
 ```bash
-source .venv/bin/activate
+source .venv_001/bin/activate
 ```
 
 ## Ejecutar los scripts
 
-Los archivos de esta carpeta son scripts `.py`, no notebooks. En VS Code (ver [instalación y selección del intérprete](INSTALACION_VSCODE.md)): abrir esta carpeta, seleccionar `.venv\Scripts\python.exe` (Windows) o `.venv/bin/python` (macOS/Linux) como intérprete, y ejecutar cada script con `F5` o el botón de play.
+Los archivos de esta carpeta son scripts `.py`, no notebooks. En VS Code (ver [instalación y selección del intérprete](INSTALACION_VSCODE.md)): abrir esta carpeta, seleccionar `.venv_001\Scripts\python.exe` (Windows) o `.venv_001/bin/python` (macOS/Linux) como intérprete, y ejecutar cada script con `F5` o el botón de play.
 
 También se puede ejecutar sin activar el entorno:
 
@@ -67,6 +71,7 @@ uv run python "000_intro_py5.py"
 Para actualizar el lockfile y sincronizar el entorno:
 
 ```powershell
+$env:UV_PROJECT_ENVIRONMENT = ".venv_001"
 uv lock --upgrade
 uv sync
 ```

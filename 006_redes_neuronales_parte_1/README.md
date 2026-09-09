@@ -28,17 +28,21 @@ Colección de notebooks sobre redes neuronales: perceptrón y regresión, clasif
 Desde esta carpeta, ejecutar:
 
 ```powershell
+$env:UV_PROJECT_ENVIRONMENT = ".venv_006"
+uv venv .venv_006 --python 3.12
 uv sync
 ```
 
-`uv sync` crea `.venv` con la versión de Python fijada en `.python-version` (3.12) e instala las versiones fijadas en `uv.lock`. El archivo `pyproject.toml` contiene las dependencias directas del laboratorio (numpy, matplotlib, pandas, seaborn, scikit-learn, tensorflow, tensorflow-datasets, pillow, gradio, opencv-python-headless) más `ipykernel` para poder usar el entorno como kernel de Jupyter/VS Code.
+> ⚠️ `UV_PROJECT_ENVIRONMENT` solo dura mientras esa terminal esté abierta. Si cerrás la terminal y abrís otra para correr `uv sync`, `uv run` o `uv lock` en esta carpeta, hay que volver a setear la variable antes (`$env:UV_PROJECT_ENVIRONMENT = ".venv_006"`) — si no, uv va a crear un `.venv` genérico nuevo en vez de usar `.venv_006`.
+
+`uv sync` crea `.venv_006` con la versión de Python fijada en `.python-version` (3.12) e instala las versiones fijadas en `uv.lock`. El archivo `pyproject.toml` contiene las dependencias directas del laboratorio (numpy, matplotlib, pandas, seaborn, scikit-learn, tensorflow, tensorflow-datasets, pillow, gradio, opencv-python-headless) más `ipykernel` para poder usar el entorno como kernel de Jupyter/VS Code.
 
 ### Registrar el kernel con nombre propio
 
 Como vas a tener varios entornos virtuales (uno por carpeta), conviene registrar el kernel de este con un nombre identificable en vez de dejar el genérico "Python 3 (ipykernel)". Con el entorno ya sincronizado, ejecutar:
 
 ```powershell
-.venv\Scripts\python.exe -m ipykernel install --user --name pdi-006-redes1 --display-name "PDI 006 - Redes Neuronales 1"
+.venv_006\Scripts\python.exe -m ipykernel install --user --name pdi-006-redes1 --display-name "PDI 006 - Redes Neuronales 1"
 ```
 
 Esto registra el kernel en tu carpeta de Jupyter (con `--user`), así que va a aparecer en VS Code/Jupyter identificado como **"PDI 006 - Redes Neuronales 1"**, sin mezclarse con los kernels de las demás carpetas.
@@ -50,18 +54,18 @@ Esto registra el kernel en tu carpeta de Jupyter (con `--user`), así que va a a
 En Windows PowerShell:
 
 ```powershell
-.venv\Scripts\Activate.ps1
+.venv_006\Scripts\Activate.ps1
 ```
 
 En macOS o Linux:
 
 ```bash
-source .venv/bin/activate
+source .venv_006/bin/activate
 ```
 
 ## Abrir los notebooks
 
-La forma recomendada es VS Code (ver [instalación y selección del kernel](INSTALACION_VSCODE.md)): abrir esta carpeta en VS Code y seleccionar `.venv\Scripts\python.exe` (Windows) o `.venv/bin/python` (macOS/Linux) como intérprete/kernel.
+La forma recomendada es VS Code (ver [instalación y selección del kernel](INSTALACION_VSCODE.md)): abrir esta carpeta en VS Code y seleccionar `.venv_006\Scripts\python.exe` (Windows) o `.venv_006/bin/python` (macOS/Linux) como intérprete/kernel.
 
 Si preferís Jupyter Lab en el navegador:
 
@@ -84,6 +88,7 @@ uv run --with jupyter jupyter lab
 Para actualizar el lockfile y sincronizar el entorno:
 
 ```powershell
+$env:UV_PROJECT_ENVIRONMENT = ".venv_006"
 uv lock --upgrade
 uv sync
 ```
