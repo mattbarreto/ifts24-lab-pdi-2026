@@ -1,0 +1,22 @@
+[project]
+name = "modelos-difusion"
+version = "0.1.0"
+description = "Entorno de laboratorio local (opcional) para modelos generativos de difusion"
+requires-python = ">=3.12"
+dependencies = [
+    "diffusers",
+    "transformers",
+    "accelerate",
+    "torch",
+    "pillow",
+    "matplotlib",
+    "numpy",
+    "requests",
+    "scipy",
+    "psutil",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.3.0",
+]
